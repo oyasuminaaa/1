@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Data Fetcher</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            const urlsTextarea = document.getElementById('urls');
+            const resultsLimitInput = document.getElementById('results_limit');
+
+            form.addEventListener('submit', function(event) {
+                // ดึงค่าจากช่อง textarea
+                const urls = urlsTextarea.value.trim().split('\n');
+
+                // ตรวจสอบว่ามี URL หรือไม่
+                if (urls.length === 0 || (urls.length === 1 && urls[0] === '')) {
+                    alert('กรุณาใส่ URL อย่างน้อย 1 รายการ');
+                    event.preventDefault();
+                    return;
+                }
+
+                // ตรวจสอบจำนวน URL ไม่เกิน 5
+                if (urls.length > 5) {
+                    alert('กรุณาใส่ URL ไม่เกิน 5 รายการ');
+                    event.preventDefault();
+                    return;
+                }
+
+                // ตรวจสอบว่าแต่ละบรรทัดมีเพียง 1 URL และเริ่มต้นด้วย https://
+                const invalidUrls = urls.filter(url => !/^https:\/\/.+/.test(url) || url.includes('https://') && url.match(/https:\/\//g).length > 1);
+
+                if (invalidUrls.length > 0) {
+                    alert('กรุณาใส่ URL ที่เริ่มต้นด้วย https:// และกรอกเพียง 1 ลิงก์ต่อบรรทัด');
+                    event.preventDefault();
+                    return;
+                }
+
+                // ตรวจสอบจำนวนโพสต์ต้องอยู่ระหว่าง 1 ถึง 50
+                const resultsLimit = parseInt(resultsLimitInput.value, 10);
+                if (isNaN(resultsLimit) || resultsLimit < 1 || resultsLimit > 50) {
+                    alert('กรุณาใส่จำนวนโพสต์ที่ต้องการดึงข้อมูลระหว่าง 1 ถึง 50');
+                    event.preventDefault();
+                    return;
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>ดึงข้อมูลโพสต์จาก Facebook</h1>
+    <form action="/fetch" method="POST">
+        <label for="urls">URL ของเพจ (ใส่ 1 บรรทัดต่อ 1 URL, ไม่เกิน 5 รายการ):</label><br>
+        <textarea id="urls" name="urls" rows="5" cols="50" required></textarea><br><br>
+
+        <label for="results_limit">จำนวนโพสต์ที่ต้องการดึงข้อมูล (1-50):</label><br>
+        <input type="number" id="results_limit" name="results_limit" value="1" required><br><br>
+
+        <button type="submit">ดึงข้อมูล</button>
+    </form>
+</body>
+</html>

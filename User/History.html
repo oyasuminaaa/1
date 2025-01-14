@@ -1,0 +1,58 @@
+<html>
+<head>
+    <title>TrendProject</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="History.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div >
+                <a href="Home.html" class="atsidebar " ><i class="fas fa-home"></i>Home</a>
+                <a href="Ranking.html" class="atsidebar"><i class="fas fa-chart-line"></i>Ranking</a>
+                <a href="#" class="atsidebar active"><i class="fas fa-history"></i>History</a>
+                <a href="Sub.html" class="atsidebar"><i class="fas fa-cog"></i>Subscription</a>
+            </div>
+            <div>
+                <a href="#"><i class="fas fa-cog"></i> Setting</a>
+            </div>
+        </div>
+        <div class="content">
+            <h1>History</h1>
+            <div  class="filter-bar">  
+            <select>
+                <option>This Week</option>
+                <option>Last Week</option>
+                <option>2 Weeks Ago</option>
+                <option>3 Weeks Ago</option>
+                
+            </select>
+                <select>
+                    <option>Category</option>
+                </select>
+                <select>
+                    <option>Source Platform</option>
+                </select>
+            </div>  
+            <div class="history-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date (Every Monday)</th>
+                            <th>Trend Words</th>
+                            <th>TF-IDF Score</th>
+                            <th>Category</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="4" class="empty-message">No data available</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

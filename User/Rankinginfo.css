@@ -1,0 +1,115 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F0F4F8;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+.sidebar {
+    width: 20%;
+    background-color: #2C3E50;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+.sidebar a i {
+    margin-right: 10px;
+}
+.atsidebar:hover{
+    background-color: lightblue;
+    padding: 6px;
+    border-radius: 5px;
+}
+a.active{
+    background-color: #5082a3; /* สีพื้นหลังสำหรับหน้า Active */
+    color: rgb(255, 255, 255); /* สีตัวอักษร */
+    font-weight: bold; /* ทำให้ข้อความดูเด่นขึ้น */
+    border-radius: 5px; /* เพิ่มมุมโค้ง */
+    padding: 6px;
+}
+.content {
+    width: 80%;
+    padding: 20px;
+}
+.ranking {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.ranking-header {
+    text-align: left;
+    margin-bottom: 20px;
+}
+.ranking-header h1 {
+    font-size: 24px;
+    color: #2C3E50;
+}
+.ranking-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2C3E50;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.ranking-details .left {
+    text-align: left;
+}
+.ranking-details .right {
+    text-align: right;
+}
+.ranking-details h2 {
+    font-size: 36px;
+    margin: 0;
+}
+.ranking-details span {
+    font-size: 18px;
+}
+.platform-section {
+    display: flex;
+    justify-content: space-between;
+}
+.platform-card {
+    width: 32%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
+.platform-card h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: #2C3E50;
+}
+.platform-card p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+.back {
+    text-decoration: none;
+}
+@media (max-width: 768px) {
+    .platform-section {
+        flex-direction: column;
+    }
+    .platform-card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}

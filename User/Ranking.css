@@ -1,0 +1,116 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F0F4F8;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+.sidebar {
+    width: 20%;
+    background-color: #2C3E50;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+.sidebar a i {
+    margin-right: 10px;
+}
+.atsidebar:hover{
+    background-color: lightblue;
+    padding: 6px;
+    border-radius: 5px;
+}
+a.active{
+    background-color: #5082a3; /* สีพื้นหลังสำหรับหน้า Active */
+    color: rgb(255, 255, 255); /* สีตัวอักษร */
+    font-weight: bold; /* ทำให้ข้อความดูเด่นขึ้น */
+    border-radius: 5px; /* เพิ่มมุมโค้ง */
+    padding: 6px;
+}
+.content {
+    width: 80%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.header div {
+    display: flex;
+    align-items: center;
+}
+.header div i {
+    margin-right: 10px;
+}
+.header div span {
+    margin-right: 20px;
+}
+.main-content {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.main-content h2 {
+    margin-bottom: 20px;
+}
+.filter-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.filter-bar select, .filter-bar button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+.ranking-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    background-color: white;
+    color: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+.ranking-item {
+    background-color: #2C3E50;
+    border: 1px solid #2C3E50;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.title {
+    color: #2C3E50;
+}
+.link {
+    text-decoration: none;  
+    color: white;
+}
+@media (max-width: 768px) {
+    .ranking-list {
+        grid-template-columns: 1fr;
+    }
+}

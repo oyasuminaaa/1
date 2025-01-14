@@ -1,0 +1,161 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F0F4F8;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+.filter-bar select, .filter-bar button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+.sidebar {
+    width: 20%;
+    background-color: #2C3E50;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;   
+}
+.atsidebar:hover{
+    background-color: lightblue;
+    padding: 6px;
+    border-radius: 5px;
+}
+a.active{
+    background-color: #5082a3; /* สีพื้นหลังสำหรับหน้า Active */
+    color: rgb(255, 255, 255); /* สีตัวอักษร */
+    font-weight: bold; /* ทำให้ข้อความดูเด่นขึ้น */
+    border-radius: 5px; /* เพิ่มมุมโค้ง */
+    padding: 6px;
+}
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+
+}
+.sidebar a i {
+    margin-right: 10px;
+}
+.content {
+    width: 80%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.header div {
+    display: flex;
+    align-items: center;
+}
+.header div i {
+    margin-right: 10px;
+}
+.header div span {
+    margin-right: 20px;
+}
+.main-content {
+    display: flex;
+    justify-content: space-between;
+}
+.trends, .ranking {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #2C3E50;
+}
+.trends {
+    width: 60%;
+    margin-right: 20px;
+}
+.ranking {
+    width: 35%;
+}
+.trend-item, .ranking-item {
+    background-color: #2C3E50;
+    color: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+.trend-item i, .ranking-item i {
+    margin-right: 10px;
+}
+.ranking-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ranking-item div {
+    display: flex;
+    align-items: center;
+}
+.ranking-item div span {
+    margin-right: 10px;
+}
+.history-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.history-table th, .history-table td {
+    text-align: left;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.history-table th {
+    background-color: #f4f8fb;
+    color: #333;
+    font-weight: bold;
+}
+
+.history-table td.empty-message {
+    text-align: center;
+    font-style: italic;
+    color: #555;
+}
+.link {
+    text-decoration: none;
+}
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .content {
+        width: 100%;
+    }
+    .main-content {
+        flex-direction: column;
+    }
+    .trends, .ranking {
+        width: 100%;
+        margin-right: 0;
+    }
+}

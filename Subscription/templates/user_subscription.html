@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Page</title>
+    <script>
+        // Set the maximum date to today
+        window.onload = function() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('date').setAttribute('max', today);
+        };
+
+        // Function to validate file type
+        function validateFileType() {
+            const fileInput = document.getElementById('payment_proof');
+            const filePath = fileInput.value;
+            const allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+            if (!allowedExtensions.exec(filePath)) {
+                alert('Please upload a file in JPG, JPEG, or PNG format.');
+                fileInput.value = ''; // Clear the input
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h1>Subscribe</h1>
+    <p>Benefits include: Premium content, exclusive updates, and more.</p>
+    <h2>Payment QR Code</h2>
+    <img src="/static/qrcode.png" alt="Payment QR Code" width="300">
+    <form action="/submit" method="post" enctype="multipart/form-data" onsubmit="return validateFileType();">
+        <br>
+        <label for="bank">Bank:</label>
+        <select id="bank" name="bank" required>
+            <option value="" disabled selected>Select your bank</option>
+            <option value="Bangkok Bank">ธนาคารกรุงเทพ</option>
+            <option value="Kasikorn Bank">ธนาคารกสิกรไทย</option>
+            <option value="Krungthai Bank">ธนาคารกรุงไทย</option>
+            <option value="Siam Commercial Bank">ธนาคารไทยพาณิชย์</option>
+            <option value="Krungsri Bank">ธนาคารกรุงศรีอยุธยา</option>
+            <option value="Kiatnakin Bank">ธนาคารเกียรตินาคิน</option>
+            <option value="BAAC">ธนาคารเพื่อการเกษตรและสหกรณ์การเกษตร</option>
+            <option value="Government Savings Bank">ธนาคารออมสิน</option>
+        </select>
+        <br><br>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+        <br><br>
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" required>
+        <br><br>
+        <label for="payment_proof">Upload Payment Proof:</label>
+        <input type="file" id="payment_proof" name="payment_proof" accept=".jpg,.jpeg,.png" required>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

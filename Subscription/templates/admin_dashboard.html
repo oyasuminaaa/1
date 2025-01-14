@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Bank</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Proof</th>
+                <th>Approved</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ loop.index0 }}</td>
+                <td>{{ user.bank }}</td>
+                <td>{{ user.date }}</td>
+                <td>{{ user.time }}</td>
+                <td><a href="static/uploads/{{ user.proof }}" target="_blank">View</a></td>
+                <td>{{ "Yes" if user.approved else "No" }}</td>
+                <td>
+                    {% if not user.approved %}
+                    <form action="/approve/{{ loop.index0 }}" method="post" style="display:inline;">
+                        <button type="submit">Approve</button>
+                    </form>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
